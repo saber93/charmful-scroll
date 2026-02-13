@@ -26,7 +26,8 @@ i18n
       en: { translation: en },
       ar: { translation: ar },
     },
-    fallbackLng: 'en',
+    lng: 'ar', // Set default language to Arabic
+    fallbackLng: 'ar',
     supportedLngs: ['en', 'ar'],
     interpolation: {
       escapeValue: false,
