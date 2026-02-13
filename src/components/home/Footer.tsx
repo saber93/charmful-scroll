@@ -1,24 +1,25 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
 
 const footerLinks = {
   company: [
-    { name: "About Us", href: "#" },
-    { name: "Careers", href: "#" },
-    { name: "Press", href: "#" },
-    { name: "Blog", href: "#" },
+    { name: "about", href: "#" },
+    { name: "careers", href: "#" },
+    { name: "press", href: "#" },
+    { name: "blog", href: "#" },
   ],
   support: [
-    { name: "Help Center", href: "#" },
-    { name: "Contact Us", href: "#" },
-    { name: "Shipping Info", href: "#" },
-    { name: "Returns", href: "#" },
+    { name: "help", href: "#" },
+    { name: "contact", href: "#" },
+    { name: "shipping", href: "#" },
+    { name: "returns", href: "#" },
   ],
   legal: [
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" },
-    { name: "Cookie Policy", href: "#" },
-    { name: "Accessibility", href: "#" },
+    { name: "privacy", href: "#" },
+    { name: "terms", href: "#" },
+    { name: "cookies", href: "#" },
+    { name: "accessibility", href: "#" },
   ],
 };
 
@@ -54,6 +55,8 @@ const itemVariants = {
 };
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-foreground text-primary-foreground pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -70,30 +73,30 @@ export default function Footer() {
               <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-xl">M</span>
               </div>
-              <span className="text-xl font-bold">Marketplace</span>
+              <span className="text-xl font-bold">{t('header.storeName')}</span>
             </div>
             <p className="text-primary-foreground/70 mb-6">
-              Your trusted destination for quality products. We're committed to sustainability and customer satisfaction.
+              {t('footer.about.description')}
             </p>
             <div className="space-y-3">
               <a href="#" className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 <MapPin className="w-5 h-5" />
-                123 Commerce St, NYC 10001
+                {t('footer.contact.address')}
               </a>
               <a href="tel:+1234567890" className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 <Phone className="w-5 h-5" />
-                +1 (234) 567-890
+                {t('footer.contact.phone')}
               </a>
               <a href="mailto:hello@marketplace.com" className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                 <Mail className="w-5 h-5" />
-                hello@marketplace.com
+                {t('footer.contact.email')}
               </a>
             </div>
           </motion.div>
 
           {/* Company Links */}
           <motion.div variants={itemVariants}>
-            <h3 className="font-bold text-lg mb-6">Company</h3>
+            <h3 className="font-bold text-lg mb-6">{t('footer.quickLinks.title')}</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -101,7 +104,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-primary-foreground/70 hover:text-primary-foreground transition-colors relative group"
                   >
-                    {link.name}
+                    {t(`footer.links.${link.name}`)}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
                   </a>
                 </li>
@@ -111,7 +114,7 @@ export default function Footer() {
 
           {/* Support Links */}
           <motion.div variants={itemVariants}>
-            <h3 className="font-bold text-lg mb-6">Support</h3>
+            <h3 className="font-bold text-lg mb-6">{t('footer.categories.title')}</h3>
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
@@ -119,7 +122,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-primary-foreground/70 hover:text-primary-foreground transition-colors relative group"
                   >
-                    {link.name}
+                    {t(`footer.links.${link.name}`)}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
                   </a>
                 </li>
@@ -129,7 +132,7 @@ export default function Footer() {
 
           {/* Legal & Social */}
           <motion.div variants={itemVariants}>
-            <h3 className="font-bold text-lg mb-6">Legal</h3>
+            <h3 className="font-bold text-lg mb-6">{t('footer.contact.title')}</h3>
             <ul className="space-y-3 mb-8">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
@@ -137,7 +140,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-primary-foreground/70 hover:text-primary-foreground transition-colors relative group"
                   >
-                    {link.name}
+                    {t(`footer.links.${link.name}`)}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
                   </a>
                 </li>
@@ -145,7 +148,7 @@ export default function Footer() {
             </ul>
 
             {/* Social Links */}
-            <h3 className="font-bold text-lg mb-4">Follow Us</h3>
+            <h3 className="font-bold text-lg mb-4">{t('footer.followUs')}</h3>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <motion.a
@@ -173,12 +176,12 @@ export default function Footer() {
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-primary-foreground/60 text-sm">
-              © 2024 Marketplace. All rights reserved.
+              {t('footer.copyright')}
             </p>
 
             {/* Payment Methods */}
             <div className="flex items-center gap-3">
-              <span className="text-primary-foreground/60 text-sm mr-2">We accept:</span>
+              <span className="text-primary-foreground/60 text-sm mr-2">{t('footer.weAccept')}</span>
               {paymentMethods.map((method) => (
                 <div
                   key={method}

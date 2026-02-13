@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -34,17 +35,21 @@ function useCountdown(targetDate: Date) {
 }
 
 export default function DealOfTheDay() {
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language === 'ar';
   const endDate = new Date();
   endDate.setDate(endDate.getDate() + 2);
   const timeLeft = useCountdown(endDate);
 
   return (
-    <section
-      className="relative py-20 bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: "url('/images/deal-of-the-day-bg.jpg')",
-      }}
-    >
+    <section className="relative py-20 overflow-hidden">
+      {/* Background Image with RTL Flip Support */}
+      <div
+        className={`absolute inset-0 bg-cover bg-center bg-no-repeat ${isRTL ? 'scale-x-[-1]' : ''}`}
+        style={{
+          backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/al-khalede.firebasestorage.app/o/1_01ff0cb0-b607-4fb7-8bbf-1cf0573a766a.jpg?alt=media&token=2549f4d4-7629-4c57-ad27-0b338d6e39f9')",
+        }}
+      />
       <div className="container mx-auto px-4 relative z-10">
         {/* Content on the left side */}
         <motion.div
@@ -60,7 +65,7 @@ export default function DealOfTheDay() {
             viewport={{ once: true }}
             className="inline-block px-4 py-1 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4"
           >
-            ⚡ Deal of the Day
+            ⚡ {t('dealOfDay.badge')}
           </motion.span>
 
           <motion.h2
@@ -70,7 +75,7 @@ export default function DealOfTheDay() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
           >
-            Premium Smart Watch Pro X
+            {t('dealOfDay.title')}
           </motion.h2>
 
           <motion.p
@@ -80,8 +85,7 @@ export default function DealOfTheDay() {
             transition={{ delay: 0.2 }}
             className="text-gray-600 text-lg mb-6"
           >
-            Experience the future on your wrist with our flagship smartwatch.
-            Advanced health tracking, seamless connectivity, and stunning design.
+            {t('dealOfDay.description')}
           </motion.p>
 
           {/* Rating */}
@@ -97,7 +101,7 @@ export default function DealOfTheDay() {
                 <span key={star} className="text-yellow-500 text-xl">★</span>
               ))}
             </div>
-            <span className="text-gray-500">(4.9 / 5 - 2,847 reviews)</span>
+            <span className="text-gray-500">{t('dealOfDay.reviews_text', { rating: 4.9, count: 2847 })}</span>
           </motion.div>
 
           {/* Price */}
@@ -110,7 +114,7 @@ export default function DealOfTheDay() {
           >
             <span className="text-4xl font-bold text-primary">$299</span>
             <span className="text-2xl text-gray-400 line-through">$499</span>
-            <Badge variant="destructive" className="text-sm">Save $200</Badge>
+            <Badge variant="destructive" className="text-sm">{t('dealOfDay.save', { amount: 200 })}</Badge>
           </motion.div>
 
           {/* Countdown */}
@@ -121,13 +125,13 @@ export default function DealOfTheDay() {
             transition={{ delay: 0.5 }}
             className="mb-8"
           >
-            <p className="text-gray-600 mb-3">Hurry! Offer ends in:</p>
+            <p className="text-gray-600 mb-3">{t('dealOfDay.hurry')}</p>
             <div className="flex gap-3">
               {[
-                { label: "Days", value: timeLeft.days },
-                { label: "Hours", value: timeLeft.hours },
-                { label: "Min", value: timeLeft.minutes },
-                { label: "Sec", value: timeLeft.seconds },
+                { label: t('dealOfDay.timer.days'), value: timeLeft.days },
+                { label: t('dealOfDay.timer.hours'), value: timeLeft.hours },
+                { label: t('dealOfDay.timer.mins'), value: timeLeft.minutes },
+                { label: t('dealOfDay.timer.secs'), value: timeLeft.seconds },
               ].map((item) => (
                 <div
                   key={item.label}
@@ -154,7 +158,7 @@ export default function DealOfTheDay() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-10 py-6 text-lg rounded-full shadow-lg transition-all duration-300"
             >
               <ShoppingCart className="w-5 h-5 mr-2" />
-              Add to Cart
+              {t('common.addToCart')}
             </Button>
           </motion.div>
         </motion.div>

@@ -20,10 +20,10 @@ const Index = () => {
       <main>
         <HeroSection />
         <PromoBannersGrid />
+        <HotDealProducts />
         <WelcomeSection />
         <CategoryGrid />
         <DealOfTheDay />
-        <HotDealProducts />
         <PromoBanner />
         <BrandsCarousel />
         <Testimonials />

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const brands = [
   { name: "Apple", logo: "🍎" },
@@ -14,6 +15,8 @@ const brands = [
 ];
 
 export default function BrandsCarousel() {
+  const { t } = useTranslation();
+
   return (
     <section className="py-16 bg-muted overflow-hidden">
       <div className="container mx-auto px-4 mb-8">
@@ -24,10 +27,10 @@ export default function BrandsCarousel() {
           className="text-center"
         >
           <span className="inline-block px-4 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
-            Trusted Partners
+            {t('brands.badge')}
           </span>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-            Brands You Love
+            {t('brands.title')}
           </h2>
         </motion.div>
       </div>

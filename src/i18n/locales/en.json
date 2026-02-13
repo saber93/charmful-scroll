@@ -12,10 +12,48 @@
     "account": "Account",
     "menu": "Menu"
   },
+  "general": {
+    "search": {
+      "title": "Search",
+      "placeholder": "Search products...",
+      "results": "Search Results",
+      "suggested": "Suggested Products",
+      "no_results": "No products found for \"{{query}}\"",
+      "view_all": "View All Results"
+    },
+    "cart": {
+      "title": "Shopping Cart",
+      "empty": "Your cart is empty",
+      "shipping_notice": "Free shipping on orders over $100!",
+      "subtotal": "Subtotal",
+      "checkout": "Checkout",
+      "view_cart": "View Shopping Cart"
+    },
+    "account": {
+      "title": "Account",
+      "login": "Login",
+      "register": "Register",
+      "email": "Email Address",
+      "password": "Password",
+      "forgot_password": "Forgot password?",
+      "sign_in": "Sign In",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "submit": "Create Account"
+    }
+  },
   "header": {
     "storeName": "Marketplace Store",
     "email": "info@marketplace.com",
     "phone": "+1 555 123 4567",
+    "shop": "Shop",
+    "all_products": "Shop All",
+    "new_arrivals": "New Arrivals",
+    "special_offers": "Special Offers",
+    "welcome": "Welcome to Marketplace",
+    "welcome_text": "Experience the finest shopping with our curated collections.",
+    "location": "123 Market St, San Francisco",
+    "collection_2024": "Collection 2024",
     "categories": {
       "electronics": "Electronics",
       "fashion": "Fashion",
@@ -23,6 +61,7 @@
       "beauty": "Beauty"
     },
     "subcategories": {
+      "mobiles": "Mobiles",
       "phones": "Phones",
       "laptops": "Laptops",
       "tablets": "Tablets",
@@ -39,7 +78,147 @@
       "makeup": "Makeup",
       "hairCare": "Hair Care",
       "fragrances": "Fragrances"
+    },
+    "promo": "Promo"
+  },
+  "shop": {
+    "title": "Shop",
+    "all_products": "Shop All",
+    "filters": "Filters",
+    "clear_all": "Clear All Filters",
+    "categories": "Categories",
+    "price": "Price",
+    "availability": "Availability",
+    "in_stock": "In Stock",
+    "low_stock": "Low Stock",
+    "products_count": "{{count}} product",
+    "products_count_plural": "{{count}} products",
+    "no_products": "No products found matching your filters.",
+    "sort": {
+      "label": "Sort by",
+      "featured": "Featured",
+      "newest": "Newest",
+      "best_selling": "Best Selling",
+      "price_asc": "Price: Low to High",
+      "price_desc": "Price: High to Low",
+      "rating": "Avg. Rating",
+      "name_asc": "Name: A-Z",
+      "name_desc": "Name: Z-A"
     }
+  },
+  "product": {
+    "off": "OFF",
+    "you_save": "You save",
+    "reviews": "{{count}} reviews",
+    "size": "Size",
+    "color": "Color",
+    "add_to_cart": "Add to Cart",
+    "buy_now": "Buy Now",
+    "free_shipping": "Free Shipping",
+    "easy_returns": "Easy Returns",
+    "secure_checkout": "Secure Checkout",
+    "sku": "SKU",
+    "category": "Category",
+    "tags": "Tags",
+    "share": "Share",
+    "description": "Description",
+    "additional_info": "Additional Info",
+    "reviews_tab": "Reviews ({{count}})",
+    "features": "Features",
+    "may_also_like": "You May Also Like",
+    "not_found": "Product Not Found",
+    "not_found_text": "The product you're looking for doesn't exist.",
+    "back_to_shop": "Back to Shop",
+    "decrease_quantity": "Decrease quantity",
+    "increase_quantity": "Increase quantity",
+    "add_to_wishlist": "Add to wishlist",
+    "feature_1": "Premium quality materials for lasting durability",
+    "feature_2": "Designed for comfort and style",
+    "feature_3": "Available in multiple sizes and colors",
+    "feature_4": "Easy care — machine washable",
+    "feature_5": "Ethically produced with sustainable practices",
+    "material": "Material",
+    "material_value": "Premium Blend",
+    "weight": "Weight",
+    "dimensions": "Dimensions",
+    "dimensions_value": "Varies by size",
+    "care": "Care",
+    "care_value": "Machine wash cold",
+    "origin": "Origin",
+    "origin_value": "Ethically sourced",
+    "review_date_1": "2 weeks ago",
+    "review_text_1": "Absolutely love this! The quality is amazing and it fits perfectly. Would definitely recommend.",
+    "review_date_2": "1 month ago",
+    "review_text_2": "Great product overall. Shipping was fast and the packaging was excellent. Minor sizing issue but it works."
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "items_count": "({{count}} item)",
+    "items_count_plural": "({{count}} items)",
+    "empty_title": "Your cart is empty",
+    "empty_text": "Looks like you haven't added anything to your cart yet. Browse our collection and find something you love!",
+    "continue_shopping": "Continue Shopping",
+    "product": "Product",
+    "price": "Price",
+    "quantity": "Quantity",
+    "total": "Total",
+    "remove": "Remove",
+    "remove_item": "Remove item",
+    "subtotal": "Subtotal",
+    "clear_cart": "Clear Cart",
+    "order_notes": "Order Notes",
+    "notes_placeholder": "Add a note to your order...",
+    "order_summary": "Order Summary",
+    "shipping": "Shipping",
+    "tax": "Tax",
+    "tax_note": "Calculated at checkout",
+    "free": "Free",
+    "checkout": "Checkout",
+    "secure_message": "Secure checkout · Free shipping on all orders"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "information": "Information",
+    "shipping": "Shipping",
+    "payment": "Payment",
+    "contact_info": "Contact Information",
+    "email_placeholder": "Email address",
+    "phone_placeholder": "Phone number",
+    "shipping_address": "Shipping Address",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "address": "Street address",
+    "city": "City",
+    "state": "State",
+    "zip": "ZIP / Postal code",
+    "continue_shipping": "Continue to Shipping",
+    "continue_payment": "Continue to Payment",
+    "place_order": "Place Order",
+    "back": "Back",
+    "shipping_method": {
+      "title": "Shipping Method",
+      "standard": "Standard Shipping",
+      "standard_time": "5–7 business days",
+      "express": "Express Shipping",
+      "express_time": "2–3 business days"
+    },
+    "payment_method": {
+      "title": "Payment",
+      "card": "Credit / Debit Card",
+      "card_number": "Card number",
+      "card_name": "Name on card",
+      "expiry": "MM / YY",
+      "cvv": "CVV"
+    },
+    "place_order_with_total": "Place Order · ${{total}}",
+    "ssl_encrypted": "SSL Encrypted",
+    "secure_checkout": "Secure Checkout"
+  },
+  "wishlist": {
+    "title": "Wishlist"
+  },
+  "compare": {
+    "title": "Compare"
   },
   "hero": {
     "slide1": {
@@ -59,6 +238,13 @@
       "title": "Handcrafted With Care",
       "subtitle": "Each product is carefully selected to ensure the highest quality standards",
       "cta": "Explore Now"
+    },
+    "alt": {
+      "organicBadge": "Organic Badge",
+      "vegetables": "Fresh Vegetables",
+      "bottle": "Bottle",
+      "flowers": "White Flowers",
+      "coffee": "Al-Khaldi Coffee"
     }
   },
   "categoryHighlights": {
@@ -78,6 +264,11 @@
       "shipping": "Free Shipping Over $50",
       "support": "24/7 Customer Support",
       "returns": "Easy 30-Day Returns"
+    },
+    "alt": {
+      "woman": "Woman with fresh vegetables",
+      "smoothie": "Fresh fruit smoothie",
+      "shape": "Decorative background shape"
     }
   },
   "categories": {
@@ -91,6 +282,13 @@
       "homeEssentials": "Home Essentials",
       "healthySnacks": "Healthy Snacks",
       "beverages": "Beverages"
+    },
+    "grid": {
+      "vegetables": "Fresh Vegetables",
+      "freshFruits": "Fresh Fruits",
+      "spices": "Organic Spices",
+      "driedProducts": "Dried Products",
+      "description": "Daily essentials"
     }
   },
   "dealOfDay": {
@@ -105,14 +303,27 @@
       "hours": "Hours",
       "mins": "Mins",
       "secs": "Secs"
-    }
+    },
+    "save": "Save ${{amount}}",
+    "hurry": "Hurry Up! Offer ends in:",
+    "reviews_text": "({{rating}} / 5 - {{count}} reviews)"
   },
   "hotDeals": {
     "badge": "Hot Deals",
     "title": "Special Offers Just for You",
-    "description": "Don't miss out on these amazing deals"
+    "description": "Don't miss out on these amazing deals",
+    "viewAll": "View All",
+    "products": {
+      "1": "Premium Wireless Headphones",
+      "2": "Smart Fitness Watch",
+      "3": "Organic Cotton T-Shirt",
+      "4": "Wireless Gaming Mouse",
+      "5": "Portable Bluetooth Speaker",
+      "6": "Ergonomic Office Chair"
+    }
   },
   "promoBanner": {
+    "badge": "Save",
     "title": "Subscribe & Save 15%",
     "description": "Join our newsletter and get exclusive discounts on your first order",
     "cta": "Subscribe Now"
@@ -124,19 +335,62 @@
   "testimonials": {
     "badge": "Testimonials",
     "title": "What Our Customers Say",
-    "happyCustomers": "Happy Customers"
+    "subtitle": "We take pride in our customers' satisfaction. See what they have to say about us.",
+    "happyCustomers": "Happy Customers",
+    "stats": {
+      "happyCustomers": "Happy Customers",
+      "productsSold": "Products Sold",
+      "averageRating": "Average Rating",
+      "satisfactionRate": "Satisfaction Rate"
+    },
+    "items": {
+      "1": {
+        "content": "The quality of the vegetables is outstanding! Fresh, organic, and delivered right to my door. Highly recommended!",
+        "role": "Verified Buyer"
+      },
+      "2": {
+        "content": "I love the variety of organic products available. The customer service is excellent and shipping is always fast.",
+        "role": "Loyal Customer"
+      },
+      "3": {
+        "content": "Best marketplace for sustainable goods. I feel good knowing I'm supporting ethical brands while getting great products.",
+        "role": "Eco Enthusiast"
+      }
+    }
   },
   "blog": {
     "badge": "From Our Blog",
     "title": "Latest News & Tips",
-    "description": "Stay updated with the latest trends and tips"
+    "description": "Stay updated with the latest trends and tips",
+    "categories": {
+      "fashion": "Fashion",
+      "tech": "Technology",
+      "lifestyle": "Lifestyle"
+    },
+    "posts": {
+      "1": {
+        "title": "Top Fashion Trends for 2024",
+        "excerpt": "Discover the latest styles and sustainable fashion tips for the upcoming season."
+      },
+      "2": {
+        "title": "The Future of Smart Home Tech",
+        "excerpt": "Explore how AI and IoT are transforming our living spaces for better efficiency and comfort."
+      },
+      "3": {
+        "title": "10 Tips for Sustainable Living",
+        "excerpt": "Simple changes you can make today to reduce your carbon footprint and live a greener life."
+      }
+    }
   },
   "instagram": {
     "badge": "Follow Us",
     "title": "Join Our Community",
-    "handle": "@marketplace"
+    "handle": "@marketplace",
+    "description": "Follow us on Instagram for daily inspiration, behind-the-scenes content, and exclusive updates."
   },
   "newsletter": {
+    "badge": "Newsletter",
+    "thanks": "Thanks for subscribing!",
     "title": "Stay in the Loop",
     "description": "Subscribe to our newsletter for exclusive deals, new arrivals, and eco-tips.",
     "placeholder": "Enter your email",
@@ -144,6 +398,8 @@
     "privacy": "We respect your privacy. Unsubscribe at any time."
   },
   "footer": {
+    "followUs": "Follow Us",
+    "weAccept": "We Accept",
     "about": {
       "title": "About Us",
       "description": "Your trusted destination for quality products. We're committed to sustainability and customer satisfaction."
@@ -167,9 +423,77 @@
     },
     "copyright": "© 2024 Marketplace. All rights reserved.",
     "links": {
+      "about": "About Us",
+      "careers": "Careers",
+      "press": "Press",
+      "blog": "Blog",
+      "help": "Help Center",
+      "contact": "Contact Us",
+      "shipping": "Shipping Info",
+      "returns": "Returns & Exchanges",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
-      "cookies": "Cookie Policy"
+      "cookies": "Cookie Policy",
+      "accessibility": "Accessibility"
+    }
+  },
+  "countries": {
+    "US": "United States",
+    "CA": "Canada",
+    "UK": "United Kingdom",
+    "AE": "United Arab Emirates",
+    "SA": "Saudi Arabia"
+  },
+  "promoBanners": {
+    "banner1": {
+      "badge": "New Collection",
+      "title": "Premium Coffee\nSelection"
+    },
+    "banner2": {
+      "badge": "Limited Offer",
+      "title": "Organic Fresh\nVegetables"
+    },
+    "banner3": {
+      "badge": "Best Seller",
+      "title": "Natural Handcrafted\nEssentials"
+    }
+  },
+  "navbar": {
+    "items": {
+      "iphone": "iPhone",
+      "samsung": "Samsung",
+      "xiaomi": "Xiaomi",
+      "realme": "Realme",
+      "macbook": "MacBook",
+      "dell": "Dell",
+      "hp": "HP",
+      "lenovo": "Lenovo",
+      "headphones": "Headphones",
+      "chargers": "Chargers",
+      "cases": "Cases",
+      "watches": "Watches",
+      "tshirts": "T-Shirts",
+      "jeans": "Jeans",
+      "jackets": "Jackets",
+      "shoes": "Shoes",
+      "dresses": "Dresses",
+      "tops": "Tops",
+      "skirts": "Skirts",
+      "handbags": "Handbags"
+    }
+  },
+  "about": {
+    "yearsTrust": "Years of Trust",
+    "badge": "About Us",
+    "title": "We Provide Healthy Food For Your Family.",
+    "description": "Our story began with a simple idea: to make healthy, organic food accessible to everyone. We believe that good food is the foundation of a happy life.",
+    "features": {
+      "authentic": "100% Authentic Products",
+      "shipping": "Fast & Free Shipping",
+      "returns": "Easy Returns Policy",
+      "secure": "Secure Payment Options",
+      "support": "Dedicated Support Team",
+      "eco": "Eco-Friendly Packaging"
     }
   }
 }

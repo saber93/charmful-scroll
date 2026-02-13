@@ -114,5 +114,10 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    padding-top: 36px;
+
+    @screen lg {
+      padding-top: 57px;
+    }
   }
 }

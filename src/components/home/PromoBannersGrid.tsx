@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 
 interface BannerItem {
@@ -13,43 +14,46 @@ interface BannerItem {
     textColor: string;
 }
 
-const banners: BannerItem[] = [
-    {
-        id: 1,
-        badge: "100% Organic",
-        title: "Quality Organic\nFood Store",
-        buttonText: "SHOP NOW",
-        link: "/about",
-        image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80",
-        bgColor: "#E5C849", // Yellow
-        circleColor: "rgba(17, 17, 17, 0.05)",
-        textColor: "#164333",
-    },
-    {
-        id: 2,
-        badge: "100% Organic",
-        title: "Healthy Products\nEveryday",
-        buttonText: "SHOP NOW",
-        link: "/products",
-        image: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=800&q=80",
-        bgColor: "#43aa5c", // Green
-        circleColor: "rgba(17, 17, 17, 0.1)",
-        textColor: "#ffffff",
-    },
-    {
-        id: 3,
-        badge: "100% Organic",
-        title: "Pure Natural\nProducts",
-        buttonText: "SHOP NOW",
-        link: "/categories",
-        image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=800&q=80",
-        bgColor: "#164333", // Dark teal
-        circleColor: "rgba(255, 255, 255, 0.05)",
-        textColor: "#ffffff",
-    },
-];
-
 export default function PromoBannersGrid() {
+    const { t, i18n } = useTranslation();
+    const isRTL = i18n.language === 'ar';
+
+    const banners: BannerItem[] = [
+        {
+            id: 1,
+            badge: t('promoBanners.banner1.badge'),
+            title: t('promoBanners.banner1.title'),
+            buttonText: t('common.shopNow'),
+            link: "/about",
+            image: "https://vkwslyojzssrpnbjoavw.supabase.co/storage/v1/object/public/media/coffee-card.avif",
+            bgColor: "#E5C849",
+            circleColor: "rgba(17, 17, 17, 0.05)",
+            textColor: "#164333",
+        },
+        {
+            id: 2,
+            badge: t('promoBanners.banner2.badge'),
+            title: t('promoBanners.banner2.title'),
+            buttonText: t('common.shopNow'),
+            link: "/products",
+            image: "https://vkwslyojzssrpnbjoavw.supabase.co/storage/v1/object/public/media/s%20(11).avif",
+            bgColor: "#43aa5c",
+            circleColor: "rgba(17, 17, 17, 0.1)",
+            textColor: "#ffffff",
+        },
+        {
+            id: 3,
+            badge: t('promoBanners.banner3.badge'),
+            title: t('promoBanners.banner3.title'),
+            buttonText: t('common.shopNow'),
+            link: "/categories",
+            image: "https://vkwslyojzssrpnbjoavw.supabase.co/storage/v1/object/public/media/s%20(24).png",
+            bgColor: "#164333",
+            circleColor: "rgba(255, 255, 255, 0.05)",
+            textColor: "#ffffff",
+        },
+    ];
+
     return (
         <section className="py-6">
             <div className="container mx-auto px-4">
@@ -69,12 +73,14 @@ export default function PromoBannersGrid() {
                             >
                                 {/* Animated circle decoration on hover */}
                                 <div
-                                    className="absolute -left-10 -top-14 w-44 h-44 rounded-full transition-transform duration-500 ease-out group-hover:scale-150"
+                                    className={`absolute -top-14 w-44 h-44 rounded-full transition-transform duration-500 ease-out group-hover:scale-150 ${isRTL ? '-right-10' : '-left-10'
+                                        }`}
                                     style={{ backgroundColor: banner.circleColor }}
                                 />
 
                                 {/* Content wrapper */}
-                                <div className="relative z-10 p-10 min-h-[200px] md:min-h-[240px] flex flex-col justify-center">
+                                <div className={`relative z-10 p-10 min-h-[200px] md:min-h-[240px] flex flex-col justify-center ${isRTL ? '-mr-6' : '-ml-6'
+                                    }`}>
                                     {/* Badge */}
                                     <span
                                         className="text-sm font-bold mb-3"
@@ -120,20 +126,46 @@ export default function PromoBannersGrid() {
                                 {/* Background image with shine effect */}
                                 <div className="absolute inset-0 overflow-hidden">
                                     {/* Image with zoom on hover */}
-                                    <div className="absolute right-0 top-0 bottom-0 w-3/5 overflow-hidden">
-                                        <img
-                                            src={banner.image}
-                                            alt={banner.title}
-                                            className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-110"
-                                        />
+                                    <div className={`absolute top-[-20px] bottom-[-20px] w-[75%] overflow-hidden ${isRTL ? 'left-[-24px]' : 'right-[-24px]'
+                                        }`}>
+                                        <div className={`w-full h-full ${isRTL ? 'scale-x-[-1]' : ''}`}>
+                                            <img
+                                                src={banner.image}
+                                                alt={banner.title}
+                                                className={`w-full h-full object-cover transition-transform duration-500 ease-out scale-90 group-hover:scale-100 object-right`}
+                                            /* Note: object-right is used for both because when flipped (scale-x-[-1]), 
+                                               the 'visual' right side of the image (which is the original left) 
+                                               is what we want to align to the 'visual' right of the container?? 
+                                               No. 
+                                               LTR: Image has product on the Right. object-right keeps product in view.
+                                               RTL: We flip the image. Product is now on the Left.
+                                                    The container is on the Left.
+                                                    Inside the container, we want to anchor to the Left (where the product is).
+                                                    BUT we flipped the container's coordinate system with scale-x-[-1]?
+                                                    If we wrap with scale-x-[-1], 'right' inside becomes 'left' visually.
+                                                    So sticking to 'object-right' inside a flipped container anchors to the visual Left?
+                                                    Let's trace:
+                                                    Normal: [ ... Product ] (Aligned Right)
+                                                    Flipped: [ Product ... ] (Visual Left)
+                                                    Inside Flipped Container:
+                                                       Coordinate system is flipped X.
+                                                       'right' is x-max. In inverted system, x-max is visual Left.
+                                                       So 'object-right' should anchor to visual Left.
+                                                       So keeping 'object-right' might be correct if we want to show the product part.
+                                            */
+                                            />
+                                        </div>
                                     </div>
 
                                     {/* Shine effect overlay */}
                                     <div
-                                        className="absolute inset-0 -left-[75%] w-1/2 h-full z-20 pointer-events-none opacity-0 group-hover:opacity-100 group-hover:animate-shine"
+                                        className={`absolute inset-0 w-1/2 h-full z-20 pointer-events-none opacity-0 group-hover:opacity-100 ${isRTL ? 'rtl-shine' : 'ltr-shine'
+                                            }`}
                                         style={{
                                             background: "linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%)",
-                                            transform: "skewX(-25deg)",
+                                            transform: isRTL ? "skewX(25deg)" : "skewX(-25deg)",
+                                            [isRTL ? 'right' : 'left']: '-75%',
+                                            // Animation is handled by CSS classes below
                                         }}
                                     />
                                 </div>
@@ -146,15 +178,20 @@ export default function PromoBannersGrid() {
             {/* Add shine animation keyframes */}
             <style>{`
         @keyframes shine {
-          0% {
-            left: -75%;
-          }
-          100% {
-            left: 125%;
-          }
+          0% { left: -75%; }
+          100% { left: 125%; }
         }
-        .group:hover .group-hover\\:animate-shine {
+        @keyframes shine-rtl {
+          0% { right: -75%; }
+          100% { right: 125%; }
+        }
+        
+        .group:hover .ltr-shine {
           animation: shine 0.75s ease-in-out forwards;
+        }
+        
+        .group:hover .rtl-shine {
+          animation: shine-rtl 0.75s ease-in-out forwards;
         }
       `}</style>
         </section>

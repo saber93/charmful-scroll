@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Send, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export default function Newsletter() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
 
@@ -52,7 +54,7 @@ export default function Newsletter() {
             transition={{ delay: 0.2 }}
             className="inline-block px-6 py-2 bg-accent text-accent-foreground text-sm font-semibold rounded-full mb-6"
           >
-            Newsletter
+            {t('newsletter.badge')}
           </motion.span>
 
           <motion.h2
@@ -62,7 +64,7 @@ export default function Newsletter() {
             transition={{ delay: 0.3 }}
             className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4"
           >
-            Stay in the Loop
+            {t('newsletter.title')}
           </motion.h2>
 
           <motion.p
@@ -72,7 +74,7 @@ export default function Newsletter() {
             transition={{ delay: 0.4 }}
             className="text-primary-foreground/80 text-lg mb-8"
           >
-            Subscribe for exclusive deals, new arrivals, and insider tips delivered to your inbox
+            {t('newsletter.description')}
           </motion.p>
 
           {isSubscribed ? (
@@ -82,7 +84,7 @@ export default function Newsletter() {
               className="flex items-center justify-center gap-3 text-primary-foreground"
             >
               <CheckCircle className="w-6 h-6" />
-              <span className="text-lg font-medium">Thanks for subscribing!</span>
+              <span className="text-lg font-medium">{t('newsletter.thanks')}</span>
             </motion.div>
           ) : (
             <motion.form
@@ -95,7 +97,7 @@ export default function Newsletter() {
             >
               <Input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t('newsletter.placeholder')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 h-14 bg-background/10 border-primary-foreground/30 text-primary-foreground placeholder:text-primary-foreground/50 rounded-full px-6 focus:bg-background/20 focus:border-primary-foreground"
@@ -106,7 +108,7 @@ export default function Newsletter() {
                 className="h-14 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
                 <Send className="w-5 h-5 mr-2" />
-                Subscribe
+                {t('newsletter.cta')}
               </Button>
             </motion.form>
           )}
@@ -118,7 +120,7 @@ export default function Newsletter() {
             transition={{ delay: 0.6 }}
             className="text-sm text-primary-foreground/60 mt-4"
           >
-            No spam, unsubscribe anytime. We respect your privacy.
+            {t('newsletter.privacy')}
           </motion.p>
         </motion.div>
       </div>

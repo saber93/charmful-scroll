@@ -1,70 +1,8 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Heart, ShoppingCart, Eye, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-
-const products = [
-  {
-    id: 1,
-    name: "Wireless Earbuds Pro",
-    price: 79,
-    originalPrice: 129,
-    rating: 4.8,
-    reviews: 1240,
-    image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&q=80",
-    discount: 39,
-  },
-  {
-    id: 2,
-    name: "Organic Cotton Tee",
-    price: 35,
-    originalPrice: 55,
-    rating: 4.6,
-    reviews: 856,
-    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80",
-    discount: 36,
-  },
-  {
-    id: 3,
-    name: "Smart Home Speaker",
-    price: 149,
-    originalPrice: 199,
-    rating: 4.9,
-    reviews: 2103,
-    image: "https://images.unsplash.com/photo-1543512214-318c7553f230?w=400&q=80",
-    discount: 25,
-  },
-  {
-    id: 4,
-    name: "Leather Crossbody Bag",
-    price: 89,
-    originalPrice: 150,
-    rating: 4.7,
-    reviews: 654,
-    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80",
-    discount: 41,
-  },
-  {
-    id: 5,
-    name: "Fitness Tracker Band",
-    price: 49,
-    originalPrice: 79,
-    rating: 4.5,
-    reviews: 1876,
-    image: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400&q=80",
-    discount: 38,
-  },
-  {
-    id: 6,
-    name: "Ceramic Plant Pot Set",
-    price: 28,
-    originalPrice: 45,
-    rating: 4.4,
-    reviews: 432,
-    image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&q=80",
-    discount: 38,
-  },
-];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -89,6 +27,71 @@ const itemVariants = {
 };
 
 export default function HotDealProducts() {
+  const { t } = useTranslation();
+
+  const products = [
+    {
+      id: 1,
+      name: t('hotDeals.products.1'),
+      price: 79,
+      originalPrice: 129,
+      rating: 4.8,
+      reviews: 1240,
+      image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&q=80",
+      discount: 39,
+    },
+    {
+      id: 2,
+      name: t('hotDeals.products.2'),
+      price: 35,
+      originalPrice: 55,
+      rating: 4.6,
+      reviews: 856,
+      image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80",
+      discount: 36,
+    },
+    {
+      id: 3,
+      name: t('hotDeals.products.3'),
+      price: 149,
+      originalPrice: 199,
+      rating: 4.9,
+      reviews: 2103,
+      image: "https://images.unsplash.com/photo-1543512214-318c7553f230?w=400&q=80",
+      discount: 25,
+    },
+    {
+      id: 4,
+      name: t('hotDeals.products.4'),
+      price: 89,
+      originalPrice: 150,
+      rating: 4.7,
+      reviews: 654,
+      image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80",
+      discount: 41,
+    },
+    {
+      id: 5,
+      name: t('hotDeals.products.5'),
+      price: 49,
+      originalPrice: 79,
+      rating: 4.5,
+      reviews: 1876,
+      image: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400&q=80",
+      discount: 38,
+    },
+    {
+      id: 6,
+      name: t('hotDeals.products.6'),
+      price: 28,
+      originalPrice: 45,
+      rating: 4.4,
+      reviews: 432,
+      image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400&q=80",
+      discount: 38,
+    },
+  ];
+
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -102,20 +105,20 @@ export default function HotDealProducts() {
         >
           <div>
             <span className="inline-block px-4 py-1 bg-accent/20 text-accent-foreground text-sm font-medium rounded-full mb-4">
-              🔥 Hot Deals
+              {t('hotDeals.badge')}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-              Today's Best Offers
+              {t('hotDeals.title')}
             </h2>
             <p className="text-muted-foreground">
-              Limited time deals on top-rated products
+              {t('hotDeals.description')}
             </p>
           </div>
           <Button
             variant="outline"
             className="mt-4 md:mt-0 w-fit border-primary text-primary hover:bg-primary hover:text-primary-foreground"
           >
-            View All Deals
+            {t('hotDeals.viewAll')}
           </Button>
         </motion.div>
 
@@ -184,7 +187,7 @@ export default function HotDealProducts() {
                 <h3 className="font-medium text-foreground text-sm line-clamp-2 group-hover:text-primary transition-colors mb-2">
                   {product.name}
                 </h3>
-                
+
                 {/* Rating */}
                 <div className="flex items-center gap-1 mb-2">
                   <Star className="w-3 h-3 fill-accent text-accent" />

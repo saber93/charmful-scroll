@@ -1,27 +1,7 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const highlights = [
-  {
-    id: 1,
-    title: "New Arrivals",
-    subtitle: "Fresh drops weekly",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
-  },
-  {
-    id: 2,
-    title: "Best Sellers",
-    subtitle: "Customer favorites",
-    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80",
-  },
-  {
-    id: 3,
-    title: "Sale Items",
-    subtitle: "Up to 50% off",
-    image: "https://images.unsplash.com/photo-1607082350899-7e105aa886ae?w=800&q=80",
-  },
-];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -46,6 +26,29 @@ const itemVariants = {
 };
 
 export default function CategoryHighlights() {
+  const { t } = useTranslation();
+
+  const highlights = [
+    {
+      id: 1,
+      title: t('categoryHighlights.title1'),
+      subtitle: t('categoryHighlights.subtitle1'),
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
+    },
+    {
+      id: 2,
+      title: t('categoryHighlights.title2'),
+      subtitle: t('categoryHighlights.subtitle2'),
+      image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80",
+    },
+    {
+      id: 3,
+      title: t('categoryHighlights.title3'),
+      subtitle: t('categoryHighlights.subtitle3'),
+      image: "https://images.unsplash.com/photo-1607082350899-7e105aa886ae?w=800&q=80",
+    },
+  ];
+
   return (
     <section className="py-12 bg-background">
       <div className="container mx-auto px-4">
@@ -89,7 +92,7 @@ export default function CategoryHighlights() {
                   variant="secondary"
                   className="w-fit group/btn bg-background/90 hover:bg-background text-foreground"
                 >
-                  Shop Now
+                  {t('common.shopNow')}
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
                 </Button>
               </div>

@@ -1,36 +1,9 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Calendar, User, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
-const posts = [
-  {
-    id: 1,
-    title: "10 Sustainable Fashion Trends to Watch in 2024",
-    excerpt: "Discover how eco-conscious choices are shaping the future of fashion and style.",
-    image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&q=80",
-    category: "Fashion",
-    date: "Feb 5, 2024",
-    author: "Emma Wilson",
-  },
-  {
-    id: 2,
-    title: "The Ultimate Guide to Smart Home Devices",
-    excerpt: "Transform your living space with the latest in home automation technology.",
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80",
-    category: "Tech",
-    date: "Feb 3, 2024",
-    author: "James Miller",
-  },
-  {
-    id: 3,
-    title: "Minimalist Living: Less is More",
-    excerpt: "How decluttering your space can lead to a more peaceful and productive life.",
-    image: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=600&q=80",
-    category: "Lifestyle",
-    date: "Feb 1, 2024",
-    author: "Sophie Clark",
-  },
-];
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -55,6 +28,38 @@ const itemVariants = {
 };
 
 export default function BlogSection() {
+  const { t } = useTranslation();
+
+  const posts = [
+    {
+      id: 1,
+      title: t('blog.posts.1.title'),
+      excerpt: t('blog.posts.1.excerpt'),
+      image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&q=80",
+      category: t('blog.categories.fashion'),
+      date: "Feb 5, 2024",
+      author: "Emma Wilson",
+    },
+    {
+      id: 2,
+      title: t('blog.posts.2.title'),
+      excerpt: t('blog.posts.2.excerpt'),
+      image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80",
+      category: t('blog.categories.tech'),
+      date: "Feb 3, 2024",
+      author: "James Miller",
+    },
+    {
+      id: 3,
+      title: t('blog.posts.3.title'),
+      excerpt: t('blog.posts.3.excerpt'),
+      image: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=600&q=80",
+      category: t('blog.categories.lifestyle'),
+      date: "Feb 1, 2024",
+      author: "Sophie Clark",
+    },
+  ];
+
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -67,13 +72,13 @@ export default function BlogSection() {
           className="text-center mb-12"
         >
           <span className="inline-block px-4 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
-            Our Blog
+            {t('blog.badge')}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Latest News & Articles
+            {t('blog.title')}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Stay updated with the latest trends, tips, and insights from our experts
+            {t('blog.description')}
           </p>
         </motion.div>
 
@@ -99,7 +104,7 @@ export default function BlogSection() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                
+
                 {/* Category Badge */}
                 <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
                   {post.category}
@@ -134,10 +139,10 @@ export default function BlogSection() {
                 className="inline-flex items-center gap-2 text-primary font-medium group/link"
               >
                 <span className="relative">
-                  Read More
+                  {t('common.readMore')}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover/link:w-full" />
                 </span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+                <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1 rtl:rotate-180 rtl:group-hover/link:-translate-x-1" />
               </a>
             </motion.article>
           ))}

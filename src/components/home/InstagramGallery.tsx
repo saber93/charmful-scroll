@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Instagram } from "lucide-react";
 
 const images = [
@@ -33,6 +34,7 @@ const itemVariants = {
 };
 
 export default function InstagramGallery() {
+  const { t } = useTranslation();
   return (
     <section className="py-20 bg-cream">
       <div className="container mx-auto px-4">
@@ -45,13 +47,13 @@ export default function InstagramGallery() {
           className="text-center mb-12"
         >
           <span className="inline-block px-4 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
-            @marketplace
+            {t('instagram.badge')}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Follow Us on Instagram
+            {t('instagram.title')}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Get inspired by our community and share your style with #MyMarketplace
+            {t('instagram.description')}
           </p>
         </motion.div>
 
@@ -77,7 +79,7 @@ export default function InstagramGallery() {
                 alt={`Instagram post ${index + 1}`}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              
+
               {/* Overlay */}
               <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-colors duration-300 flex items-center justify-center">
                 <Instagram className="w-8 h-8 text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-50 group-hover:scale-100" />

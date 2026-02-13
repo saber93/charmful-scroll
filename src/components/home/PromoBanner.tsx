@@ -1,8 +1,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 
 export default function PromoBanner() {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -17,7 +19,7 @@ export default function PromoBanner() {
       <motion.div style={{ y }} className="absolute inset-0 -top-20">
         <img
           src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80"
-          alt="Promotional banner"
+          alt={t('promoBanner.alt')}
           className="w-full h-[140%] object-cover"
         />
         <div className="absolute inset-0 bg-primary/70" />
@@ -39,7 +41,7 @@ export default function PromoBanner() {
             transition={{ delay: 0.2 }}
             className="inline-block px-6 py-2 bg-accent text-accent-foreground text-sm font-semibold rounded-full mb-6"
           >
-            Subscribe & Save 15%
+            {t('promoBanner.badge')} 15%
           </motion.span>
 
           <motion.h2
@@ -49,7 +51,7 @@ export default function PromoBanner() {
             transition={{ delay: 0.3 }}
             className="text-3xl md:text-5xl font-bold text-primary-foreground mb-4"
           >
-            Join Our Newsletter
+            {t('promoBanner.title')}
           </motion.h2>
 
           <motion.p
@@ -59,7 +61,7 @@ export default function PromoBanner() {
             transition={{ delay: 0.4 }}
             className="text-primary-foreground/90 text-lg mb-8"
           >
-            Get exclusive access to new arrivals, special offers, and insider-only discounts
+            {t('promoBanner.description')}
           </motion.p>
 
           <motion.div
@@ -72,7 +74,7 @@ export default function PromoBanner() {
               size="lg"
               className="bg-background hover:bg-background/90 text-foreground font-semibold px-10 py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
-              Subscribe Now
+              {t('promoBanner.cta')}
             </Button>
           </motion.div>
         </motion.div>

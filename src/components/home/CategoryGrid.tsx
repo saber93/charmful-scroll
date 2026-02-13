@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 interface Category {
   id: number;
@@ -8,40 +9,42 @@ interface Category {
   bgColor: string;
 }
 
-const categories: Category[] = [
-  {
-    id: 1,
-    name: "Vegetables",
-    description: "When nothing prevents our to we like best be.",
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&q=80",
-    bgColor: "#43aa5c",
-  },
-  {
-    id: 2,
-    name: "Fresh Fruits",
-    description: "When nothing prevents our to we like best be.",
-    image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&q=80",
-    bgColor: "#c23a4f",
-  },
-  {
-    id: 3,
-    name: "Spices",
-    description: "When nothing prevents our to we like best be.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=80",
-    bgColor: "#e5b848",
-  },
-  {
-    id: 4,
-    name: "Dried Products",
-    description: "When nothing prevents our to we like best be.",
-    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80",
-    bgColor: "#9e7b5a",
-  },
-];
-
 export default function CategoryGrid() {
+  const { t } = useTranslation();
+
+  const categories: Category[] = [
+    {
+      id: 1,
+      name: t('categories.grid.vegetables'),
+      description: t('categories.grid.description'),
+      image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&q=80",
+      bgColor: "#43aa5c",
+    },
+    {
+      id: 2,
+      name: t('categories.grid.freshFruits'),
+      description: t('categories.grid.description'),
+      image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&q=80",
+      bgColor: "#c23a4f",
+    },
+    {
+      id: 3,
+      name: t('categories.grid.spices'),
+      description: t('categories.grid.description'),
+      image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=80",
+      bgColor: "#e5b848",
+    },
+    {
+      id: 4,
+      name: t('categories.grid.driedProducts'),
+      description: t('categories.grid.description'),
+      image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80",
+      bgColor: "#9e7b5a",
+    },
+  ];
+
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-20 pb-32 overflow-visible">
       {/* Background pattern (left side decorative) */}
       <img
         src="/images/category-bg-pattern.png"
@@ -54,9 +57,9 @@ export default function CategoryGrid() {
 
       {/* Wave overlay at bottom */}
       <img
-        src="/images/category-wave.png"
+        src="https://firebasestorage.googleapis.com/v0/b/al-khalede.firebasestorage.app/o/pattern-3.png?alt=media&token=684e8508-ce34-4c3b-a7ba-7776e58b22ab"
         alt=""
-        className="absolute left-0 -bottom-8 w-full h-16 object-cover z-10 pointer-events-none"
+        className="absolute left-0 bottom-0 w-full h-24 object-cover z-20 pointer-events-none translate-y-3/4"
       />
 
       <div className="container mx-auto px-4 relative z-20">
@@ -72,15 +75,15 @@ export default function CategoryGrid() {
             className="text-[#43aa5c] text-xl italic"
             style={{ fontFamily: "'Caveat', cursive" }}
           >
-            Our Categories
+            {t('categories.badge')}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
-            What we're offering
+            {t('categories.title')}
           </h2>
         </motion.div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category, index) => (
             <motion.a
               key={category.id}
@@ -92,14 +95,14 @@ export default function CategoryGrid() {
               className="group"
             >
               {/* Card with hover lift effect - overflow-hidden clips the brush stroke at top */}
-              <div className="bg-white rounded-[10px] shadow-[0_10px_20px_rgba(0,0,0,0.1)] p-8 pt-10 text-center transition-all duration-300 group-hover:-translate-y-5 group-hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] overflow-hidden">
+              <div className="bg-white rounded-[10px] shadow-[0_10px_20px_rgba(0,0,0,0.1)] p-4 pt-6 sm:p-8 sm:pt-10 text-center flex flex-col items-center transition-all duration-300 group-hover:-translate-y-5 group-hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)] overflow-hidden">
                 {/* Image container - positioned relative for brush stroke positioning */}
-                <div className="relative w-[180px] h-[180px] mx-auto mb-6">
+                <div className="relative max-w-[180px] w-full aspect-square mb-4 sm:mb-6">
                   {/* Brush stroke PNG background - positioned to extend above and be clipped by card */}
                   <img
                     src={`/images/category-brush-${category.id}.png`}
                     alt=""
-                    className="absolute left-1/2 -translate-x-1/2 w-[180px] h-auto pointer-events-none"
+                    className="absolute inset-x-0 mx-auto w-full h-auto pointer-events-none"
                     style={{ bottom: '24px', maxHeight: '250px' }}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
@@ -108,7 +111,7 @@ export default function CategoryGrid() {
                   />
                   {/* Fallback colored circle */}
                   <div
-                    className="absolute top-0 left-1/2 -translate-x-1/2 w-[180px] h-[180px] rounded-full -z-10"
+                    className="absolute top-0 inset-0 rounded-full -z-10"
                     style={{
                       background: `linear-gradient(135deg, ${category.bgColor} 0%, ${category.bgColor}dd 100%)`,
                     }}
@@ -125,10 +128,10 @@ export default function CategoryGrid() {
                 </div>
 
                 {/* Content */}
-                <h3 className="font-bold text-xl text-gray-900 mb-2">
+                <h3 className="font-bold text-base sm:text-xl text-gray-900 mb-2">
                   {category.name}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
+                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">
                   {category.description}
                 </p>
               </div>
